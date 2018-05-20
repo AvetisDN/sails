@@ -13,8 +13,9 @@ module.exports = {
             return res.redirect('/session');
         }
 
-        User.findOneByUsername(username).exec(function (err, user) {
+        User.findOne({username: username}).exec(function (err, user) {
             if (!user || err) return res.sendStatus(500);
+
             if (passwordHash.verify(password, user.password)) {
                 req.session.auth = true;
                 req.session.User = user;
@@ -22,6 +23,8 @@ module.exports = {
                 if (req.session.User.admin) {
                     return res.redirect('/admin');
                 }
+            } else {
+                return res.redirect('/login');
             }
         });
     },

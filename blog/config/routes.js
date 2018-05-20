@@ -31,6 +31,11 @@ module.exports.routes = {
         action: 'delete'
     },
 
+    'get /post/watch/:id': {
+        controller: 'post',
+        action: 'watch'
+    },
+
     'post /post/update': {
         controller: 'post',
         action: 'update'
@@ -55,5 +60,20 @@ module.exports.routes = {
         controller: 'session',
         action: 'destroy'
     },
+
+    'post /session/create' : {
+        controller: 'session',
+        action: 'create'
+    },
+
+    '/admin'    : {
+        controller: 'admin',
+        action: 'index'
+    },
+
+    'get /admin/edit/:id'    : {
+        controller: 'admin',
+        action: 'edit'
+    }
 
 };

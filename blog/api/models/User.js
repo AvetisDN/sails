@@ -26,8 +26,7 @@ module.exports = {
 
     beforeCreate: function (values, next) {
         // Создаем зашифрованную запись пароля в БД
-        var mainPass = passwordHash.generate(values.password);
-        values.password = mainPass;
+        values.password = passwordHash.generate(values.password);
         next();
     }
 

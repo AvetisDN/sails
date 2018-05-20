@@ -7,7 +7,7 @@
 
 module.exports = {
 
-    create: function (req, res) {
+    create: async function (req, res) {
 
         var params = {
             description : req.param('description'),
@@ -15,10 +15,8 @@ module.exports = {
             title       : req.param('title'),
         };
 
-        Post.create(params).exec(function (err, post) {
-            res.redirect('/post/watch/' + post.id);
-            if (err) return res.sendStatus(500);
-        });
+        var post = await Post.create(params).fetch();
+        res.redirect('/post/watch/' + post.id);
 
     },
     update: function (req, res) {
@@ -32,7 +30,7 @@ module.exports = {
 
         Post.update(Id, elem).exec(function (err) {
             if (err) return res.sendStatus(500);
-            res.redirect('/');
+            res.redirect('/admin');
         });
 
     },
@@ -40,7 +38,7 @@ module.exports = {
         var Id = req.param('id');
         Post.destroy(Id).exec(function (err) {
             if (err) return res.sendStatus(500);
-            res.redirect('/post');
+            res.redirect('/admin');
         });
     },
 
