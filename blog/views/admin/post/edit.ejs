@@ -11,6 +11,7 @@
                 <textarea rows="7" name="content" class="form-control"><%= post.content %></textarea>
                 <input type="hidden" name="_csrf" value="<%= _csrf %>" /><br>
                 <input type="hidden" name="id" value="<%= post.id %>" /><br>
+                <input class="form-control" type="text" name="category_id" placeholder="Category" value="<%= post.category_id %>"><hr>
                 <input type="submit" class="btn btn-success" value="Update">
             </form>
         </div>

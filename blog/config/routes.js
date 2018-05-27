@@ -66,14 +66,53 @@ module.exports.routes = {
         action: 'create'
     },
 
+    '/category': {
+        controller: 'category', // Контроллер
+        action: 'index' // Действие
+    },
+    'post /category/create': {
+        controller: 'category',
+        action: 'create'
+    },
+
+    'get /category/delete/:id': {
+        controller: 'category',
+        action: 'delete'
+    },
+
+    'get /category/watch/:id': {
+        controller: 'category',
+        action: 'watch'
+    },
+
+    'post /category/update': {
+        controller: 'category',
+        action: 'update'
+    },
+
+
     '/admin'    : {
         controller: 'admin',
         action: 'index'
     },
 
-    'get /admin/edit/:id'    : {
+    '/admin/post' : {
         controller: 'admin',
-        action: 'edit'
+        action: 'postIndex'
+    },
+    '/admin/post/edit/:id' : {
+        controller: 'admin',
+        action: 'postEdit'
+    },
+
+    '/admin/category' : {
+        controller: 'admin',
+        action: 'categoryIndex'
+    },
+    '/admin/category/edit/:id' : {
+        controller: 'admin',
+        action: 'categoryEdit'
     }
+
 
 };

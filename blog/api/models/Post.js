@@ -21,6 +21,9 @@ module.exports = {
       content: {
           type: 'string',
           required: true
+      },
+      category_id: {
+          model: 'category'
       }
 
   },

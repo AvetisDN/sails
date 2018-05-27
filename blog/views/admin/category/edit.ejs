@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 well text-center">
+            <form action="/category/update" method="POST">
+                <h4>Title</h4>
+                <input type="text" class="form-control" name="title" value="<%= category.title %>"><br>
+                <h4>Description</h4>
+                <textarea rows="3" name="description" class="form-control"><%= category.description %></textarea>
+                <input type="hidden" name="_csrf" value="<%= _csrf %>" /><br>
+                <input type="hidden" name="id" value="<%= category.id %>" /><br>
+                <input type="text" class="form-control" name="parent" value="<%= category.parent %>"><br>
+                <input type="submit" class="btn btn-success" value="Update">
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

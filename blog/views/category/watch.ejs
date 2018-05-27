@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col s12">
+        <h1>
+            <%= category.title %>
+        </h1>
+        <div>
+            <%= category.description %>
+        </div>
+        <hr>
+        <div>
+            <% _.each(category.posts, function (post) { %>
+                <article>
+                    <h4>
+                        <%= post.title %>
+                    </h4>
+                    <p>
+                        <%= post.content %>
+                    </p>
+                </article>
+            <%
+            })
+            %>
+        </div>
+    </div>
+</div>

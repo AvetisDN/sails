@@ -1,0 +1,14 @@
+<ul>
+    <% _.each(categories, function (category) { %>
+        <% if (category.parent == parent_id) { %>
+        <li>
+            <a href="/category/watch/<%= category.id %>">
+                <%= category.title %>
+            </a>
+            <% if (category.children.length) { %>
+            <%- partial('recursive.ejs', {parent_id: category.id}) %>
+            <% } %>
+        </li>
+        <% } %>
+    <% }) %>
+</ul>
